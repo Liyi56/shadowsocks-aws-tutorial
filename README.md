@@ -1,7 +1,5 @@
 # shadowsocks-aws-tutorial
 
-**以下操作皆在 Mac 环境完成**
-
 原先使用某个 vpn 公司的服务进行翻墙。但是因为 vpn 公司的网络都是共享的，很多时候会出现卡顿和不稳定，便决定自己搭建一个服务器拿来做代理。
 当上网搜索了一阵子之后，总算在几个小时内就把自己的代理做出来了。
 我使用的是 aws 的 vps，因为现在 amazon 有给一年的免费试用。
@@ -17,7 +15,6 @@
 
 在完成注册之后，可以进入 AWS Management Console，然后记得要先在右上角选择你要部署的服务器的区域，如下图：
 
-<!-- ![choose_zone](dist/images/choose_zone.png) -->
 <img src="dist/images/choose_zone.png" width="300px">
 
 如上，我选择的是新加坡的，你也可以选择亚洲的其它国家，这样做是为了提高速度和降低 ip 被墙的可能性。
