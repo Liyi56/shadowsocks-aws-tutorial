@@ -111,4 +111,11 @@ $ sudo ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 
 在 iPhone 上可以安装 Potatso Lite，但是国内的 apple id 账号下载不了，你可以去注册一个国外的 apple id 账号然后进行下载，具体操作可以 google 或者百度。
 
+## 测试速度
+
+连接了之后，你可以上 [https://www.speedtest.net](https://www.speedtest.net) 测试一下速度
+
+<img src="dist/images/speed.png" width="600">
+
+这是我的速度测试。我家里使用的是 100Mbps 的网络，所以这个连接速度基本上就等同于我家网络的带宽速度。因为家里网络离代理服务器较远的原因，ping 值有点高。
 
