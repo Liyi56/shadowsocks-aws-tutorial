@@ -98,7 +98,7 @@ $ sudo ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 
 > 对于 teddysun 编写的 shell 文件感兴趣的可以点击这里：[shadowsocks-all.sh](shell/shadowsocks-all.sh)
 
-## 安装 shadowsocks 客户端
+## 第六步：安装 shadowsocks 客户端
 
 ### Mac
 在 Mac 上安装 shadowsocks 客户端很简单
