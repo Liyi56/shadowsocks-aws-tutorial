@@ -14,14 +14,19 @@
 ## 第二步：创建 vps instance
 
 在完成注册之后，可以进入 AWS Management Console，然后记得要先在右上角选择你要部署的服务器的区域，如下图：
-![choose_zone](dist/images/choose_zone.png)
+
+<!-- ![choose_zone](dist/images/choose_zone.png) -->
+<img src="dist/images/choose_zone.png" width="200px">
+
 如上，我选择的是新加坡的，你也可以选择亚洲的其它国家，这样做是为了提高速度和降低 ip 被墙的可能性。
 
 之后便点击左上角的 services 下拉选择 ec2
-![choose_ec2](dist/images/choose_ec2.png)
+
+<img src="dist/images/choose_ec2.png" width="200px">
 
 然后在打开的页面的左侧导航栏选择 instances
-![choose_instances](dist/images/choose_instances.png)
+
+<img src="dist/images/choose_instances.png" width="200px">
 
 之后点击左上角的 Launch Instance 去创建 vps instance， 跟着走就好。
 
@@ -30,15 +35,18 @@
 每个 vps instance 都会属于一个安全组，安全组里面定义了进出服务器的端口规则，没有设置安全组的话，就只有默认地可以通过 ssh 连接服务器的 22 的端口而已。所以我们可以做一个简单的设置去开放 vps instance 的所有端口。
 
 首先先查看你的 instance 属于什么安全组，可以在刚才的 instance 页面拉到最右端查看。
-![check_instance_security_group](dist/images/check_security_group.png)
+
+<img src="dist/images/check_security_group.png" width="200px">
 
 然后在左边的导航栏选择 Security Group
 
 再点击选择修改 instance 所属安全组规则的 inbound rule（进入规则）：
-![inbound](dist/images/inbound.png)
+
+<img src="dist/images/inbound.png" width="200px">
 
 修改成如下：
-![edit_inbound](dist/images/edit_inbound.png)
+
+<img src="dist/images/edit_inbound.png" width="400px">
 
 ## 第三步：连接到 instance
 
@@ -51,7 +59,8 @@ $ ping ...(这里填服务器地址)
 > 顺便提醒一下，如果刚才我们没有设置安全组规则，这里是ping不进去的。
 
 如果 ping 有反应的话，如下：
-![ping_response](dist/images/ping_response.png)
+
+<img src="dist/images/ping_response.png" width="400px">
 
 那么我们就可以继续操作了，要不然就需要你去换 instance 的ip。
 
@@ -70,7 +79,7 @@ $ ssh -i "keypair.pem" your-instance-address(这里放你 instance 的地址)
 
 ## 第四步：安装 EPEL
 
-在安装 shadowsocks 之前我们要安装 epel 先，运行如下命令就可：
+在 aws 安装 shadowsocks 之前我们要先安装 epel，运行如下命令就可：
 ```bash
 [ec2-user ~]$ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 ```
