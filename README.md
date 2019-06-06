@@ -7,6 +7,8 @@
 我使用的是 aws 的 vps，因为现在 amazon 有给一年的免费试用。
 让我们开始吧。
 
+> vps 是 Virtual private server 的缩写，详细查看这里：[https://en.wikipedia.org/wiki/Virtual_private_server](https://en.wikipedia.org/wiki/Virtual_private_server)
+
 ## 第一步：注册 aws 账号
 
 进入 [https://aws.amazon.com/](https://aws.amazon.com/)，点击右上角的 create account，跟着一步一步走就可以。
@@ -40,7 +42,7 @@
 
 然后在左边的导航栏选择 Security Group
 
-再点击选择修改 instance 所属安全组规则的 inbound rule（进入规则）：
+再点击选择修改 instance 所属安全组规则的 inbound rule（端口进入规则）：
 
 <img src="dist/images/inbound.png" width="300px">
 
@@ -54,37 +56,39 @@
 
 你可以先试着 ping 一下服务器
 ```bash
-$ ping ...(这里填服务器地址)
+$ ping your-instance-address(服务器地址)
 ```
-> 顺便提醒一下，如果刚才我们没有设置安全组规则，这里是ping不进去的。
+
+顺便提醒一下，如果刚才我们没有设置安全组规则，这里是 ping 不进去的。
 
 如果 ping 有反应的话，如下：
 
 <img src="dist/images/ping_response.png" width="600px">
 
-那么我们就可以继续操作了，要不然就需要你去换 instance 的ip。
+那么我们就可以继续操作了，要不然就说明这个 ip 被墙了，需要你去更换 instance 的 ip。
 
 那么让我们开始通过 ssh 连接到 instance。
 在创建 instance 的时候，aws 让你创建 一个 keypair，并且会自动下载一对钥匙下来（后缀为 .pem）的文件
 
 假设你的 keypair 文件的名字就叫 keypair.pem
 
-那么运行如下命令就可：
+那么到你的 keypair.pem 的文件所在目录运行如下命令就可：
+
 ```bash
-$ cd dir(keypair.pem 文件所在文件夹)
 $ chmod 400 keypair.pem
-$ ssh -i "keypair.pem" your-instance-address(这里放你 instance 的地址)
+$ ssh -i "keypair.pem" your-instance-address(服务器地址)
 ```
 那么你就连接到你的 instance 了
 
 ## 第四步：安装 EPEL
 
-在 aws 安装 shadowsocks 之前我们要先安装 epel，运行如下命令就可：
+在 aws instance 上安装 shadowsocks 之前我们要先安装 EPEL，运行如下命令就可：
+
 ```bash
 [ec2-user ~]$ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 ```
 
-## 第五步： 安装 shadowsocks
+## 第五步： 在 instance 上安装 shadowsocks
 
 感谢 [@teddysun](https://github.com/teddysun) 大佬制作的一键安装脚本(下面的命令目前还可以使用，但是由于大佬的退出, 版本已经不再更新)
 
@@ -94,14 +98,15 @@ $ chmod +x shadowsocks-all.sh
 $ sudo ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 ```
 执行完毕之后，你的 shadowsocks 就设置完毕了，但是记住把最后打印出来的信息保存下来。
-对于 teddysun 编写的 shell 文件感兴趣的可以点击这里：[shadowsocks-all.sh](shell/shadowsocks-all.sh)
+
+> 对于 teddysun 编写的 shell 文件感兴趣的可以点击这里：[shadowsocks-all.sh](shell/shadowsocks-all.sh)
 
 ## 安装 shadowsocks 客户端
 
 ### Mac
 在 Mac 上安装 shadowsocks 客户端很简单
 
-到 [https://github.com/shadowsocks/ShadowsocksX-NG/releases](https://github.com/shadowsocks/ShadowsocksX-NG/releases) 下载打开，然后一步一步跟着走就好了。
+到 [https://github.com/shadowsocks/ShadowsocksX-NG/releases](https://github.com/shadowsocks/ShadowsocksX-NG/releases) 下载即可。
 
 值得注意的是，打开下载来的软件 ShadowsocksX-NG ( Mac 版本) 没有实际的软件界面，一切操作都在顶部导航栏。
 
