@@ -16,17 +16,17 @@
 在完成注册之后，可以进入 AWS Management Console，然后记得要先在右上角选择你要部署的服务器的区域，如下图：
 
 <!-- ![choose_zone](dist/images/choose_zone.png) -->
-<img src="dist/images/choose_zone.png" width="200px">
+<img src="dist/images/choose_zone.png" width="300px">
 
 如上，我选择的是新加坡的，你也可以选择亚洲的其它国家，这样做是为了提高速度和降低 ip 被墙的可能性。
 
 之后便点击左上角的 services 下拉选择 ec2
 
-<img src="dist/images/choose_ec2.png" width="200px">
+<img src="dist/images/choose_ec2.png" width="300px">
 
 然后在打开的页面的左侧导航栏选择 instances
 
-<img src="dist/images/choose_instances.png" width="200px">
+<img src="dist/images/choose_instances.png" width="300px">
 
 之后点击左上角的 Launch Instance 去创建 vps instance， 跟着走就好。
 
@@ -36,17 +36,17 @@
 
 首先先查看你的 instance 属于什么安全组，可以在刚才的 instance 页面拉到最右端查看。
 
-<img src="dist/images/check_security_group.png" width="200px">
+<img src="dist/images/check_security_group.png" width="300px">
 
 然后在左边的导航栏选择 Security Group
 
 再点击选择修改 instance 所属安全组规则的 inbound rule（进入规则）：
 
-<img src="dist/images/inbound.png" width="200px">
+<img src="dist/images/inbound.png" width="300px">
 
 修改成如下：
 
-<img src="dist/images/edit_inbound.png" width="400px">
+<img src="dist/images/edit_inbound.png" width="600px">
 
 ## 第三步：连接到 instance
 
@@ -60,7 +60,7 @@ $ ping ...(这里填服务器地址)
 
 如果 ping 有反应的话，如下：
 
-<img src="dist/images/ping_response.png" width="400px">
+<img src="dist/images/ping_response.png" width="600px">
 
 那么我们就可以继续操作了，要不然就需要你去换 instance 的ip。
 
